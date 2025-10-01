@@ -1,15 +1,41 @@
-import React from "react";
+import './johnny.css';
+import React, { useEffect } from "react";
 import ReactDOM from "react-dom/client";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import Chat from "./pages/Chat";
-import "./index.css";
 
+// ✅ Fix mobile 100vh issue by setting --vh dynamically
+const setVh = () => {
+  const vh = window.innerHeight * 0.01;
+  document.documentElement.style.setProperty("--vh", `${vh}px`);
+};
+setVh();
+window.addEventListener("resize", setVh);
+
+// ✅ Auth screen without Tailwind classes
 const Auth = () => (
-  <div className="h-screen flex items-center justify-center bg-gray-100">
-    <div className="text-center space-y-4">
-      <h1 className="text-2xl font-bold">Welcome to Johnny Assistant</h1>
+  <div
+    style={{
+      height: "100vh",
+      background: "#F9FAFB",
+      display: "flex",
+      alignItems: "center",
+      justifyContent: "center",
+    }}
+  >
+    <div style={{ textAlign: "center" }}>
+      <h1 style={{ fontSize: "20px", fontWeight: "bold", marginBottom: "16px" }}>
+        Welcome to Johnny Assistant
+      </h1>
       <button
-        className="bg-purple-600 text-white px-4 py-2 rounded"
+        style={{
+          background: "#7C3AED",
+          color: "white",
+          padding: "8px 16px",
+          border: "none",
+          borderRadius: "8px",
+          cursor: "pointer",
+        }}
         onClick={() => {
           localStorage.setItem("mdbi_authenticated", "true");
           window.location.href = "/";
