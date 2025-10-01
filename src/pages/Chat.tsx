@@ -94,29 +94,31 @@ const Chat = () => {
   };
 
   return (
-    <div className="flex flex-col h-screen bg-gray-50">
-      <ChatHeader />
+    <div className="h-screen w-full bg-brand-background flex justify-center">
+      <div className="flex flex-col w-full max-w-md h-full bg-white shadow-xl border border-gray-200">
+        <ChatHeader />
 
-      <div className="flex-1 overflow-hidden flex flex-col">
-        <div className="p-4 border-b bg-white">
-          <CourseSelector
-            selectedCourse={selectedCourse}
-            onSelectCourse={setSelectedCourse}
-          />
-        </div>
+        <div className="flex-1 overflow-hidden flex flex-col">
+          <div className="p-3 border-b bg-white">
+            <CourseSelector
+              selectedCourse={selectedCourse}
+              onSelectCourse={setSelectedCourse}
+            />
+          </div>
 
-        <ChatMessages messages={messages} />
+          <ChatMessages messages={messages} />
 
-        <div className="p-4 border-t bg-white space-y-3">
-          <FileUpload
-            onFilesSelected={setSelectedFiles}
-            selectedFiles={selectedFiles}
-          />
-          <ChatInput
-            onSend={handleSendMessage}
-            disabled={!selectedCourse || isLoading}
-            isLoading={isLoading}
-          />
+          <div className="p-3 border-t bg-white space-y-3">
+            <FileUpload
+              onFilesSelected={setSelectedFiles}
+              selectedFiles={selectedFiles}
+            />
+            <ChatInput
+              onSend={handleSendMessage}
+              disabled={!selectedCourse || isLoading}
+              isLoading={isLoading}
+            />
+          </div>
         </div>
       </div>
     </div>

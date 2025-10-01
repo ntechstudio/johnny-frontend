@@ -6,18 +6,14 @@ module.exports = {
   ],
   theme: {
     extend: {
-      fontFamily: {
-        sans: ["Inter", "sans-serif"]
-      },
       colors: {
         brand: {
-          purple: "#7C3AED",
-          pink: "#F472B6",
-          background: "#F9FAFB"
+          purple: '#7C3AED',        // Brand purple
+          pink: '#F472B6',          // Brand pink
+          background: '#F9FAFB'     // Light background
         }
-      }
-    }
+      },
+    },
   },
-  plugins: []
+  plugins: [],
 };
-
